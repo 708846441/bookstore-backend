@@ -1,3 +1,5 @@
+package login;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -5,9 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 
-@WebServlet("/login/check")
-public class LoginCheck extends HttpServlet {
+@WebServlet("/login/check_session")
+public class LoginSession extends HttpServlet {
     private String message;
 
     @Override
@@ -23,17 +26,13 @@ public class LoginCheck extends HttpServlet {
         //设置逻辑实现
         PrintWriter out = resp.getWriter();
 
-        String usn = req.getParameter("usn");
-        String psw = req.getParameter("psw");
-
-        // temp
-        if (usn.equals("admin") && psw.equals("admin")){
+        String usn = (String)req.getSession().getAttribute("user");
+        if (usn!=null){
             message = "Succeed";
         }
         else{
-            message = "Fail";
+            message = "Failure";
         }
-
         out.print(message);
     }
 
@@ -47,4 +46,6 @@ public class LoginCheck extends HttpServlet {
     public void destroy() {
         super.destroy();
     }
+
+
 }
