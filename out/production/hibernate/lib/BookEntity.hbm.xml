@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="lib.BookEntity" table="book" schema="bookstore">
+        <id name="bookId">
+            <column name="book_id" sql-type="int(11)"/>
+        </id>
+        <property name="bookName">
+            <column name="book_name" sql-type="varchar(1024)" length="1024"/>
+        </property>
+        <property name="author">
+            <column name="author" sql-type="varchar(1024)" length="1024"/>
+        </property>
+        <property name="price">
+            <column name="price" sql-type="int(11)"/>
+        </property>
+        <property name="sales">
+            <column name="sales" sql-type="int(11)"/>
+        </property>
+        <property name="language">
+            <column name="language" sql-type="varchar(1024)" length="1024"/>
+        </property>
+        <property name="inventory">
+            <column name="inventory" sql-type="varchar(1024)" length="1024"/>
+        </property>
+    </class>
+</hibernate-mapping>

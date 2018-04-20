@@ -7,10 +7,30 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
+
+import database.CustomerEntity;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
 
 @WebServlet("/login/check")
 public class LoginCheck extends HttpServlet {
+
+    private static final SessionFactory sessionFactory;
+
+    // 加载配置文件，并创建表
+    static {
+        Configuration configuration = new Configuration();
+        configuration.configure();
+        sessionFactory = configuration.buildSessionFactory();
+    }
+
+    public static Session getSession() {
+        return sessionFactory.openSession();
+    }
+
+
     private String message;
 
     @Override
@@ -20,37 +40,38 @@ public class LoginCheck extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //设置响应内容类型
+        // set up hibernate
+        final Session session = getSession();
+        Transaction transaction = session.beginTransaction();
+        try{
         resp.setContentType("text/html");
-        //设置逻辑实现
         PrintWriter out = resp.getWriter();
+
         String usn = req.getParameter("usn");
         String psw = req.getParameter("psw");
-        if(!usn.equals("admin")) {
-            message = "Fail";
-        } else if(!psw.equals("admin")) {
-            message = "Fail";
-        } else {
-            // 登陆成功
-            // 将user存起来，请求重定向
+
+        CustomerEntity Cust = session.get(CustomerEntity.class, usn);
+        if (Cust == null){
+            message = "Unknown user";
+        }
+        else if (Cust.getPassword().equals(psw)){
             req.getSession().setAttribute("user", usn);
             message = "Succeed";
         }
-
-//        // temp
-//        if (usn.equals("admin") && psw.equals("admin")){
-//            message = "Succeed";
-//        }
-//        else{
-//            message = "Fail";
-//        }
-
+        else{
+            message = "Failure";
+        }
         out.print(message);
+        }
+        catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req,resp);
+        doGet(req, resp);
     }
 
 

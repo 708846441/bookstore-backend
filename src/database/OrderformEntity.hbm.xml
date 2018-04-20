@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="database.OrderformEntity" table="orderform" schema="bookstore">
+        <id name="orderId">
+            <column name="order_id" sql-type="int(11)"/>
+        </id>
+        <property name="amount">
+            <column name="amount" sql-type="int(11)"/>
+        </property>
+        <many-to-one name="customerByUsername" class="database.CustomerEntity">
+            <column name="username"/>
+        </many-to-one>
+        <many-to-one name="bookByBookId" class="database.BookEntity">
+            <column name="book_id"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
