@@ -1,3 +1,5 @@
+package bookinfo;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -6,13 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/Hi")
+@WebServlet("/hello")
 public class HelloWorld extends HttpServlet {
     private String message;
 
     @Override
     public void init() throws ServletException {
-        message = "Hello world, this message is from servlet!";
+        message = "Hello world";
     }
 
     @Override

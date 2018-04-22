@@ -14,10 +14,30 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="hibernate.cfg.xml" />
+          <unit-entry name="hibernate.cfg.xml" value="8dd5a8f0-a28e-4861-8be4-14d86436a419" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate.cfg.xml" />
+      </configuration>
+    </facet>
+    <facet type="web" name="Web2">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/lib/mysql-connector-java-5.1.46/src/testsuite/simple/DataSourceTest.java" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/lib/mysql-connector-java-5.1.46/src/testsuite/simple" relative="/WEB-INF" />
+        </webroots>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web3">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/lib/mysql-connector-java-5.1.46/src/testsuite/fabric/TestResultSetParser.java" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/lib/mysql-connector-java-5.1.46/src/testsuite/fabric" relative="/WEB-INF" />
+        </webroots>
       </configuration>
     </facet>
   </component>

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="net.sf.jsonunicode:jsonunicode:1.0" type="repository">
+    <properties maven-id="net.sf.jsonunicode:jsonunicode:1.0" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jsonunicode-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
