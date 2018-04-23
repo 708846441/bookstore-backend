@@ -1,16 +1,16 @@
 package database;
 
 public class OrderformEntity {
-    private int orderId;
+    private String orderId;
     private int amount;
     private CustomerEntity customerByUsername;
     private BookEntity bookByBookId;
 
-    public int getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(int orderId) {
+    public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
 
@@ -35,7 +35,7 @@ public class OrderformEntity {
     }
 
     public int hashCode() {
-        int result = orderId;
+        int result = 0;
         result = 31 * result + amount;
         return result;
     }

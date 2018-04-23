@@ -4,8 +4,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.awt.print.Book;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 
 
@@ -50,12 +52,35 @@ public class GetBook extends HttpServlet {
             final Session session = getSession();
             Transaction transaction = session.beginTransaction();
             try{
-                message = "hello from getbook";
+                message = "Hello from getbook";
+                StringBuffer buf = new StringBuffer();
+                buf.append("[");
+                List book_ids = session.createSQLQuery("select book_id from book")
+                        .addScalar("book_id").list();
+                int len = book_ids.size();
+                for (int i=0; i<len; i++){
+                    String id = book_ids.get(i).toString();
+                    BookEntity Book = session.get(BookEntity.class, Integer.parseInt(id));
+                    buf.append(
+                            "{\"ID\" : \"" + id +
+                                    "\", \"Name\" : \"" + Book.getBookName() +
+                                    "\", \"Author\" : \"" +Book.getAuthor() +
+                                    "\", \"Price\" : \"" +Book.getPrice() +
+                                    "\", \"Sales\" : \"" +Book.getSales() +
+                                    "\", \"Inventory\" : \"" +Book.getInventory() +
+                                    "\", \"Language\" : \""+ Book.getLanguage() +"\"}");
+                    if (i!=len-1){
+                        buf.append(",");
+                    }
+                    else buf.append("]");
+                }
+                message = buf.toString();
             }
             catch (Exception e) {
                 transaction.rollback();
                 e.printStackTrace();
             }
+
         }
         out.print(message);
     }

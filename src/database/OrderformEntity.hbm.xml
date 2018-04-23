@@ -6,7 +6,7 @@
 
     <class name="database.OrderformEntity" table="orderform" schema="bookstore">
         <id name="orderId">
-            <column name="order_id" sql-type="int(11)"/>
+            <column name="order_id" sql-type="varchar(255)"/>
         </id>
         <property name="amount">
             <column name="amount" sql-type="int(11)"/>
