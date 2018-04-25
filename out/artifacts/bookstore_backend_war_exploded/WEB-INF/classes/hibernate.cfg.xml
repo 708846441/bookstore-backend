@@ -12,9 +12,10 @@
       <mapping resource="database/CustomerEntity.hbm.xml"/>
       <mapping resource="database/OrderformEntity.hbm.xml"/>
       <mapping resource="database/IndentEntity.hbm.xml"/>
+      <mapping resource="database/IndentitemsEntity.hbm.xml"/>
 
 
-    <!-- DB schema will be updated if needed -->
+      <!-- DB schema will be updated if needed -->
     <!-- <property name="hbm2ddl.auto">update</property> -->
   </session-factory>
 </hibernate-configuration>

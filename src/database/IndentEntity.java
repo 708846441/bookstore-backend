@@ -3,14 +3,14 @@ package database;
 import java.util.Objects;
 
 public class IndentEntity {
-    private String indentId;
+    private int indentId;
     private int createTime;
 
-    public String getIndentId() {
+    public int getIndentId() {
         return indentId;
     }
 
-    public void setIndentId(String indentId) {
+    public void setIndentId(int indentId) {
         this.indentId = indentId;
     }
 

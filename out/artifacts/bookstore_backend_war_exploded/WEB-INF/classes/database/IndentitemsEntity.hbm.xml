@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="database.IndentitemsEntity" table="indentitems" schema="bookstore">
+        <id name="pk">
+            <column name="pk" sql-type="int(11)"/>
+            <generator class="increment"/>
+        </id>
+        <property name="bookId">
+            <column name="book_id" sql-type="int(11)"/>
+        </property>
+        <property name="username">
+            <column name="username" sql-type="varchar(255)"/>
+        </property>
+        <property name="indentId">
+            <column name="indent_id" sql-type="int(11)"/>
+        </property>
+        <property name="amount">
+            <column name="amount" sql-type="int(11)"/>
+        </property>
+    </class>
+</hibernate-mapping>

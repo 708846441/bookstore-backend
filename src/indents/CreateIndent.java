@@ -6,6 +6,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import database.OrderformEntity;
+import database.IndentEntity;
+import database.IndentitemsEntity;
 import org.hibernate.criterion.Order;
 
 import javax.servlet.ServletException;
@@ -64,12 +66,22 @@ public class CreateIndent extends HttpServlet {
                     .list();
             int len = orders.size();
 
+            IndentEntity new_indent = new IndentEntity();
+            session.save(new_indent);
             for (int i=0; i<len; i++){
                 OrderformEntity order = orders.get(i);
                 BookEntity book = order.getBookByBookId();
-
-
+                IndentitemsEntity new_item = new IndentitemsEntity();
+                new_item.setAmount(order.getAmount());
+                new_item.setBookId(book.getBookId());
+                new_item.setIndentId(new_indent.getIndentId());
+                new_item.setUsername(usn);
+                session.save(new_item);
             }
+            //temp
+            new_indent.setCreateTime(20181111);
+
+            transaction.commit();
 
             out.print(message);
         }

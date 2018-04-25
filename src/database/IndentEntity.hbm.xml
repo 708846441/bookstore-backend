@@ -6,7 +6,7 @@
 
     <class name="database.IndentEntity" table="indent" schema="bookstore">
         <id name="indentId">
-            <column name="indent_id" sql-type="varchar(255)"/>
+            <column name="indent_id" sql-type="int(11)"/>
             <generator class="increment"/>
         </id>
         <property name="createTime">
