@@ -32,4 +32,14 @@ public class Controller {
     public String errorHandler4(){
         return "index.html";
     }
+
+    @RequestMapping(value="/indents", method=RequestMethod.GET)
+    public String errorHandler5(){
+        return "index.html";
+    }
+
+    @RequestMapping(value="/admin_booklist", method=RequestMethod.GET)
+    public String errorHandler6(){
+        return "index.html";
+    }
 }

@@ -20,6 +20,16 @@ public class Customer {
 
     private String name;
 
+    private int is_admin;
+
+    public int getIsAdmin() {
+        return is_admin;
+    }
+
+    public void setIsAdmin(int is_admin) {
+        this.is_admin = is_admin;
+    }
+
     public String getUsername() {
         return username;
     }

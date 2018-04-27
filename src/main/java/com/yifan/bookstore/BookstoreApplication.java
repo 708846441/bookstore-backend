@@ -29,6 +29,7 @@ public class BookstoreApplication {
 							"\", \"Price\" : \"" +book.getPrice() +
 							"\", \"Sales\" : \"" +book.getSales() +
 							"\", \"Inventory\" : \"" +book.getInventory() +
+							"\", \"Summary\" : \"" +book.getSummary() +
 							"\", \"Language\" : \""+ book.getLanguage() +"\"}");
 			buf.append(',');
 		}

@@ -13,7 +13,16 @@ public class Book {
     private int price;
     private int sales;
     private String language;
-    private String inventory;
+    private int inventory;
+    private String summary;
+
+    public String getSummary(){
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
 
     public int getBookId() {
         return bookId;
@@ -63,11 +72,11 @@ public class Book {
         this.language = language;
     }
 
-    public String getInventory() {
+    public int getInventory() {
         return inventory;
     }
 
-    public void setInventory(String inventory) {
+    public void setInventory(int inventory) {
         this.inventory = inventory;
     }
 

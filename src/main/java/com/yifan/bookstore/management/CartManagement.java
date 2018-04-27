@@ -81,7 +81,10 @@ public class CartManagement {
             return "Succeed";
         }
         else{
+
             OrderForm order = orderFormRepository.getOrderFormsByOrderId(order_id);
+            if (new_amount >  bookRepository.getBookByBookId(order.getBook_id()).getInventory())
+                return "No enough books";
             order.setAmount(new_amount);
             orderFormRepository.save(order);
             return "Succeed";
