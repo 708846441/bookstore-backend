@@ -22,6 +22,16 @@ public class Customer {
 
     private int is_admin;
 
+    private int is_valid;
+
+    public void setIs_valid(int is_valid) {
+        this.is_valid = is_valid;
+    }
+
+    public int getIs_valid() {
+        return is_valid;
+    }
+
     public int getIsAdmin() {
         return is_admin;
     }

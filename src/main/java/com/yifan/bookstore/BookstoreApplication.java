@@ -17,28 +17,6 @@ public class BookstoreApplication {
 	@Autowired
 	BookRepository bookRepository;
 
-    @RequestMapping("/getBook")
-   	public String getBooklist(){
-		List<Book> bookList = bookRepository.getAll();
-		StringBuffer buf = new StringBuffer("[");
-		for (Book book:bookList){
-			buf.append(
-					"{\"ID\" : \"" + book.getBookId() +
-							"\", \"Name\" : \"" + book.getBookName() +
-							"\", \"Author\" : \"" +book.getAuthor() +
-							"\", \"Price\" : \"" +book.getPrice() +
-							"\", \"Sales\" : \"" +book.getSales() +
-							"\", \"Inventory\" : \"" +book.getInventory() +
-							"\", \"Summary\" : \"" +book.getSummary() +
-							"\", \"Language\" : \""+ book.getLanguage() +"\"}");
-			buf.append(',');
-		}
-		buf.deleteCharAt(buf.length()-1);
-		buf.append("]");
-		return buf.toString();
-	}
-
-
 	public static void main(String[] args) {
 		SpringApplication.run(BookstoreApplication.class, args);
 	}

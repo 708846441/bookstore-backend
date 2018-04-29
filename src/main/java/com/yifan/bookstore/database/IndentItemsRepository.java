@@ -9,4 +9,7 @@ import java.util.List;
 public interface IndentItemsRepository extends JpaRepository<IndentItems, Long>{
     @Query("select item from IndentItems item where item.username=:username")
     List<IndentItems> getByUsername(@Param("username") String username);
+
+    @Query("select item from IndentItems item")
+    List<IndentItems> getAll();
 }

@@ -41,6 +41,9 @@ public class CustomerInfoManagement {
             return "Unknown user";
         }
         else if (customer.getPassword().equals(psw)){
+            if (customer.getIs_valid() == 0){
+                return "Blocked user";
+            }
             httpSession.setAttribute("user", usn);
             return "Succeed";
         }
@@ -96,6 +99,7 @@ public class CustomerInfoManagement {
         newCustomer.setPassword(password);
         newCustomer.setPhone(phone);
         newCustomer.setUsername(username);
+        newCustomer.setIs_valid(1);
         customerRepository.save(newCustomer);
         httpSession.setAttribute("user", username);
         return "Succeed";

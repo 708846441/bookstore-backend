@@ -23,6 +23,30 @@ public class CartManagement {
     @Autowired
     OrderFormRepository orderFormRepository;
 
+    @RequestMapping("/getBook")
+    public String getBooklist(){
+        List<Book> bookList = bookRepository.getAll();
+        StringBuffer buf = new StringBuffer("[");
+        for (Book book:bookList){
+            buf.append(
+                    "{\"ID\" : \"" + book.getBookId() +
+                            "\", \"Name\" : \"" + book.getBookName() +
+                            "\", \"Author\" : \"" +book.getAuthor() +
+                            "\", \"Price\" : \"" +book.getPrice() +
+                            "\", \"Sales\" : \"" +book.getSales() +
+                            "\", \"Category\" : \"" +book.getCategory() +
+                            "\", \"Inventory\" : \"" +book.getInventory() +
+                            "\", \"Summary\" : \"" +book.getSummary() +
+                            "\", \"Language\" : \""+ book.getLanguage() +"\"}");
+            buf.append(',');
+        }
+        buf.deleteCharAt(buf.length()-1);
+        buf.append("]");
+        return buf.toString();
+    }
+
+
+
     @RequestMapping("/purchase/add_to_cart")
     public String addCart(HttpSession httpSession, int book_id){
         if(httpSession.getAttribute("user")==null)
@@ -89,7 +113,5 @@ public class CartManagement {
             orderFormRepository.save(order);
             return "Succeed";
         }
-
     }
-
 }

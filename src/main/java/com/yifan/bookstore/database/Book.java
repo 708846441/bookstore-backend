@@ -9,12 +9,21 @@ public class Book {
     @Id
     private int bookId;
     private String bookName;
+    private String category;
     private String author;
     private int price;
     private int sales;
     private String language;
     private int inventory;
     private String summary;
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
     public String getSummary(){
         return summary;
