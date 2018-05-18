@@ -51,12 +51,12 @@ public class IndentManagement {
         int hour = c.get(Calendar.HOUR_OF_DAY);
         int minute = c.get(Calendar.MINUTE);
         int second = c.get(Calendar.SECOND);
-        String create_time = year + "/" +
-                ((month>10)?month:("0"+month)) + "/" +
-                (date>10?date:("0"+date)) + " " +
-                (hour>10?hour:("0"+hour)) + ":" +
-                (minute>10?minute:("0"+minute)) + ":" +
-                (second>10?second:("0"+second));
+        String create_time = year + "-" +
+                ((month>=10)?month:("0"+month)) + "-" +
+                (date>=10?date:("0"+date)) + "T" +
+                (hour>=10?hour:("0"+hour)) + ":" +
+                (minute>=10?minute:("0"+minute)) + ":" +
+                (second>=10?second:("0"+second));
         new_indent.setCreateTime(create_time);
         indentRepository.save(new_indent);
         for (int i=0; i<len; i++){
