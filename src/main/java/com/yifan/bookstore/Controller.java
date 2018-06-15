@@ -52,4 +52,9 @@ public class Controller {
     public String errorHandler8(){
         return "index.html";
     }
+
+    @RequestMapping(value="/purchase", method=RequestMethod.GET)
+    public String errorHandler9(){
+        return "index.html";
+    }
 }
