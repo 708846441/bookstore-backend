@@ -8,13 +8,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 
 import java.util.List;
 
 @RestController
 @SpringBootApplication
-public class BookstoreApplication {
+public class BookstoreApplication extends SpringBootServletInitializer{
 	@Autowired
 	BookRepository bookRepository;
 
