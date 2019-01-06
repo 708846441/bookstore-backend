@@ -15,17 +15,17 @@ import java.util.List;
 
 @RestController
 @SpringBootApplication
-public class BookstoreApplication extends SpringBootServletInitializer {
+public class BookstoreApplication /*extends SpringBootServletInitializer*/ {
 
 
 	public static void main(String[] args) {
 		SpringApplication.run(BookstoreApplication.class, args);
 	}
 
-	@Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder){
-	    return builder.sources(BookstoreApplication.class);
-    }
+//	@Override
+//    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder){
+//	    return builder.sources(BookstoreApplication.class);
+//    }
 
 
 }
