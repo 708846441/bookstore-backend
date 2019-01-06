@@ -1,5 +1,4 @@
-FROM java:8
-
-ADD bookstore-1.0.0-SNAPSHOT.jar bookstore.jar
-
-ENTRYPOINT ["java", "-Duser.timezone=GMT+8", "-jar", "/bookstore.jar"]
+FROM openjdk:8-jdk-alpine
+ARG JAR_FILE
+ADD ${JAR_FILE} bookstore.jar
+ENTRYPOINT [ "java", "-jar", "/bookstore.jar"]
